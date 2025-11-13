@@ -464,28 +464,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &785348844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6149623583236598232, guid: 67cbff35ad116364d82cf8589cc04790, type: 3}
-  m_PrefabInstance: {fileID: 3740846613812617887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &785348845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9180386737831222960, guid: 67cbff35ad116364d82cf8589cc04790, type: 3}
   m_PrefabInstance: {fileID: 3740846613812617887}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &785348847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785348844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7b155a4a49926469aa299c1f1e94f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KillPlayer
 --- !u!1 &1274786395
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,10 +768,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6149623583236598232, guid: 67cbff35ad116364d82cf8589cc04790, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 785348847}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cbff35ad116364d82cf8589cc04790, type: 3}
 --- !u!1001 &4572786144544665781
 PrefabInstance:
