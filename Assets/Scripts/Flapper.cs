@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Flapper : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 5f;
