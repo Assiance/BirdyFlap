@@ -10,6 +10,13 @@ public class MoveForward : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        
+        // Enable interpolation to smooth movement between physics steps
+        // This prevents jitter when camera follows in LateUpdate
+        if (_rb.interpolation == RigidbodyInterpolation2D.None)
+        {
+            _rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+        }
     }
 
     private void FixedUpdate()
