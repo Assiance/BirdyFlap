@@ -1,3 +1,11 @@
 ﻿<Solution>
+  <Project Path="SingularityGroup.HotReload.Editor.csproj" />
+  <Project Path="AssetInventory.Editor.csproj" />
+  <Project Path="SingularityGroup.HotReload.Runtime.Public.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="SingularityGroup.HotReload.Runtime.csproj" />
+  <Project Path="AssetInventory.JD.EditorAudioUtils.Editor.csproj" />
+  <Project Path="CodeStage.Package2Folder.csproj" />
+  <Project Path="AssetInventory.Examples.csproj" />
+  <Project Path="AssetInventory.Examples.Editor.csproj" />
 </Solution>
