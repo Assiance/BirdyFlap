@@ -6,6 +6,7 @@ public class RoadblockSpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject roadblockPrefab;
+    [SerializeField] private GameObject scoreColliderPrefab;
     [SerializeField] private Transform player;
     
     [Header("Spawn Timing")]
@@ -23,6 +24,9 @@ public class RoadblockSpawner : MonoBehaviour
     [SerializeField] private float minGapSize = 3.5f;
     [SerializeField] private float pairGapMin = 3.5f;
     [SerializeField] private float pairGapMax = 6f;
+    
+    [Header("Score Collider Settings")]
+    [SerializeField] private float scoreColliderDistance = 1f;
     
     private List<GameObject> spawnedRoadblocks = new List<GameObject>();
     private Camera mainCamera;
@@ -42,6 +46,13 @@ public class RoadblockSpawner : MonoBehaviour
         if (roadblockPrefab == null)
         {
             Debug.LogError("RoadblockSpawner: Roadblock prefab not assigned!");
+            enabled = false;
+            return;
+        }
+        
+        if (scoreColliderPrefab == null)
+        {
+            Debug.LogError("RoadblockSpawner: ScoreCollider prefab not assigned!");
             enabled = false;
             return;
         }
@@ -132,6 +143,23 @@ public class RoadblockSpawner : MonoBehaviour
         roadblock.transform.localScale = scale;
         
         spawnedRoadblocks.Add(roadblock);
+        
+        // Spawn ScoreCollider in the open area behind the roadblock
+        float openAreaCenter;
+        if (placeAtTop)
+        {
+            // Roadblock at top, open area is at bottom
+            openAreaCenter = screenBottom + (screenHeight - actualCoverage) * 0.5f;
+        }
+        else
+        {
+            // Roadblock at bottom, open area is at top
+            openAreaCenter = screenTop - (screenHeight - actualCoverage) * 0.5f;
+        }
+        
+        Vector3 scoreColliderPosition = new Vector3(spawnX + scoreColliderDistance, openAreaCenter, 0);
+        GameObject scoreCollider = Instantiate(scoreColliderPrefab, scoreColliderPosition, Quaternion.identity);
+        spawnedRoadblocks.Add(scoreCollider);
     }
     
     private void SpawnPair(float spawnX)
@@ -177,6 +205,11 @@ public class RoadblockSpawner : MonoBehaviour
         bottomScale.y = bottomRoadblockSize;
         bottomRoadblock.transform.localScale = bottomScale;
         spawnedRoadblocks.Add(bottomRoadblock);
+        
+        // Spawn ScoreCollider in the gap behind the roadblocks
+        Vector3 scoreColliderPosition = new Vector3(spawnX + scoreColliderDistance, gapCenter, 0);
+        GameObject scoreCollider = Instantiate(scoreColliderPrefab, scoreColliderPosition, Quaternion.identity);
+        spawnedRoadblocks.Add(scoreCollider);
     }
     
     private void CleanupOldRoadblocks()

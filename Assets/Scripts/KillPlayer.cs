@@ -14,8 +14,7 @@ public class KillPlayer : MonoBehaviour
 
     private void RestartScene()
     {
-        // Reload the current active scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.RestartGameScene();
     }
 }
 
